@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Command">
+  <ClassDiagramComponents>
+    <Class name="Remote" package="" visibility="public" xPosition="800.0" yPosition="86.0">
+      <Fields>
+        <Field name="c1" type="Command" visibility="private"/>
+        <Field name="c2" type="Command" visibility="private"/>
+        <Field name="c3" type="Command" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setCommand1" returnType="void" visibility="public">
+          <Argument type="Command" name="c"/>
+        </Method>
+        <Method name="setCommand2" returnType="void" visibility="public">
+          <Argument type="Command" name="c"/>
+        </Method>
+        <Method name="setCommand3" returnType="void" visibility="public">
+          <Argument type="Command" name="c"/>
+        </Method>
+        <Method name="press1" returnType="void" visibility="public"/>
+        <Method name="press2" returnType="void" visibility="public"/>
+        <Method name="press3" returnType="void" visibility="public"/>
+        <Method name="buttonWasPressed" returnType="void" visibility="private">
+          <Argument type="int" name="button"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Command" package="" visibility="public" xPosition="548.0" yPosition="264.0">
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="Light" package="" visibility="public" xPosition="250.0" yPosition="648.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="on" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GarageDoor" package="" visibility="public" xPosition="548.0" yPosition="648.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="open" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cat" package="" visibility="public" xPosition="848.0" yPosition="648.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="activate" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LightOnCommand" package="" visibility="public" xPosition="241.0" yPosition="460.0">
+      <Fields>
+        <Field name="light" type="Light" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Light" name="l"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GarageDoorCommand" package="" visibility="public" xPosition="500.0" yPosition="460.0">
+      <Fields>
+        <Field name="garagedoor" type="GarageDoor" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="GarageDoor" name="gd"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CatCommand" package="" visibility="public" xPosition="848.0" yPosition="460.0">
+      <Fields>
+        <Field name="cat" type="Cat" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Cat" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mainclass" package="" visibility="public" xPosition="249.0" yPosition="86.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="has" source="LightOnCommand" target="Light" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="CatCommand" target="Command"/>
+    <HasRelation name="has" source="GarageDoorCommand" target="GarageDoor" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="CatCommand" target="Cat" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="Remote" target="Command" sourceCardinality="1..1" targetCardinality="0..*"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="LightOnCommand" target="Command"/>
+    <UseRelation name="" source="Mainclass" target="Remote" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GarageDoorCommand" target="Command"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
